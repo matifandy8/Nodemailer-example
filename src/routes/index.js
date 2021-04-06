@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const router = Router();
+require("dotenv").config();
 
 const nodemailer = require("nodemailer");
 
@@ -21,8 +22,8 @@ router.post("/send-email", async (req, res) => {
     port: 587,
     secure: false,
     auth: {
-      user: "joel34@ethereal.email",
-      pass: "gAdU9rzaPD5mAta98w",
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
     },
     tls: {
       rejectUnauthorized: false,
